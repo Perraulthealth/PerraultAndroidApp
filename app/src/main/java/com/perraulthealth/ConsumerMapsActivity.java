@@ -3,6 +3,7 @@ package com.perraulthealth;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -17,14 +18,12 @@ import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.Marker;
 import com.perraulthealth.fragment.ListViewFragment;
 import com.perraulthealth.fragment.MapsFragment;
-import com.perraulthealth.fragment.Sidemenu;
+import com.perraulthealth.model.SidemenuActivity;
 
+import android.widget.ArrayAdapter;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import java.util.Map;
-
-import static com.perraulthealth.R.drawable.ic_action_siddemenuv;
-import static com.perraulthealth.R.drawable.ic_action_sidebar;
-import static com.perraulthealth.R.id.sidemenu;
-
 
 public class ConsumerMapsActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -38,35 +37,37 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
     private GeoQuery geoQuery;
     private Map<String, Marker> markers;
     ImageView img_view, img_sidemenu;
-    ListView listView;
     boolean viewboolean = false;
-    boolean sidemenuboolean = false;
     private MapsFragment mapsFragment = null;
     private ListViewFragment listViewFragment = null;
-    private Sidemenu sideMenu = null;
+    private ListView mDrawerList = null;
+    private ArrayAdapter<String> mAdapter = null;
+    private ActionBarDrawerToggle mDrawerToggle = null;
+    private DrawerLayout mDrawerLayout = null;
+    private String mActivityTitle = null;
+    private Toolbar mToolbar = null;
 
     android.support.v4.app.FragmentManager fm;
     android.support.v4.app.FragmentTransaction ft;
 
+    private ListView listView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consumer_home);
+        setContentView(R.layout.consumerhome);
 
         findViewById(R.id.body).setOnClickListener(this);
         findViewById(R.id.imageViewList).setOnClickListener(this);
         findViewById(R.id.sidemenu).setOnClickListener(this);
-
         img_view = (ImageView) findViewById(R.id.imageViewList);
-        img_sidemenu = (ImageView) findViewById(sidemenu);
+        img_sidemenu = (ImageView) findViewById(R.id.sidemenu);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
 
         mapsFragment = new MapsFragment();
         listViewFragment = new ListViewFragment();
-        sideMenu = new Sidemenu();
 
 
         if (viewboolean == false) {
@@ -82,26 +83,20 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
         }
 
 
-
     }
 
 
     @Override
     public void onStart() {
         super.onStart();
-        //setContentView(R.layout.fragment_map);
     }
-
     @Override
     public void onClick(View v) {
         int i = v.getId();
-        if (i == R.id.imageViewList)
-        {
-            if (false == viewboolean)
-            {
+        if (i == R.id.imageViewList) {
+            if (false == viewboolean) {
                 viewboolean = true;
                 img_view.setImageResource(R.drawable.list_view_icon);
-
 
 
                 fm = getSupportFragmentManager();
@@ -113,9 +108,7 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
 
                 ft.commit();
                 Toast.makeText(this, "Welcome to Map", Toast.LENGTH_SHORT).show();
-            }
-            else if (true == viewboolean)
-            {
+            } else if (true == viewboolean) {
 
                 img_view.setImageResource(R.drawable.ic_action_map);
                 viewboolean = false;
@@ -126,49 +119,39 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
                 ft.remove(mapsFragment);
 
                 ft.add(R.id.containerlist, listViewFragment);
-                        ft.commit();
+                ft.commit();
                 Toast.makeText(this, "Welcome to list", Toast.LENGTH_SHORT).show();
-
-                }
 
             }
 
-        else if (i == R.id.body)
-        {
+        } else if (i == R.id.body) {
             Toast.makeText(this, "Welcome body ...tarun", Toast.LENGTH_SHORT).show();
             // finish();
             startActivity(new Intent(getApplicationContext(), Body.class));
         }
-        else if (i == sidemenu)
-        {
+        else if (i == R.id.sidemenu) {
 
-            if (false == sidemenuboolean) {
-                img_sidemenu.setImageResource(ic_action_siddemenuv);
-                sidemenuboolean = true;
-                fm = getSupportFragmentManager();
-                ft = fm.beginTransaction();
-                ft.add(R.id.containersidemenu, sideMenu);
-                ft.commit();
-                Toast.makeText(this, "Open sidemenu", Toast.LENGTH_SHORT).show();
-            }
-            if (true == sidemenuboolean)
-            {
-                img_sidemenu.setImageResource(ic_action_sidebar);
-                sidemenuboolean = true;
-                fm = getSupportFragmentManager();
-                ft = fm.beginTransaction();
-                ft.remove(sideMenu);
-                ft.commit();
-                Toast.makeText(this, "Close sidemenu", Toast.LENGTH_SHORT).show();
-            }
+            startActivity(new Intent(getApplicationContext(), SidemenuActivity.class));
 
+                Toast.makeText(this, "Side Menu", Toast.LENGTH_SHORT).show();
+            }
 
         }
 
-    }
+
     private void removeFragments() {
         ft.remove(mapsFragment);
         ft.remove(listViewFragment);
         //ft.remove(sidemenu);
     }
+
+
+
+    @Override
+    public void onStop() {
+        super.onStop();
+
+    }
+
+
 }
