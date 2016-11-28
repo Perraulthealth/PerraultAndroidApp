@@ -21,7 +21,6 @@ import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.Marker;
 import com.perraulthealth.fragment.ListViewFragment;
 import com.perraulthealth.fragment.MapsFragment;
-import com.perraulthealth.model.SidemenuActivity;
 
 import java.util.Map;
 
