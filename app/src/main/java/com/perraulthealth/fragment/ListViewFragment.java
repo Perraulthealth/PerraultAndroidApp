@@ -12,7 +12,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.perraulthealth.Doctor;
+import com.perraulthealth.Datatypes.Doctor;
 import com.perraulthealth.Hospital;
 import com.perraulthealth.Lab;
 import com.perraulthealth.Pharmacy;
@@ -121,8 +121,8 @@ public class ListViewFragment extends ListFragment {
 
         objDoctor = new Doctor();
         objDoctor.setName("A K Sharma");
-        objDoctor.setDegree("MBBS");
-        objDoctor.setRegnum("AQTPM23ertu6789u");
+      // objDoctor.setDegree("MBBS");
+        //objDoctor.setRegnum("AQTPM23ertu6789u");
         mRootRef.child("Doctor").child(uid).setValue(objDoctor);
 
          objPharmacy = new Pharmacy();
