@@ -2,9 +2,12 @@ package com.perraulthealth;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -20,9 +23,6 @@ import com.perraulthealth.fragment.ListViewFragment;
 import com.perraulthealth.fragment.MapsFragment;
 import com.perraulthealth.model.SidemenuActivity;
 
-import android.widget.ArrayAdapter;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import java.util.Map;
 
 public class ConsumerMapsActivity extends AppCompatActivity implements View.OnClickListener {
@@ -61,26 +61,18 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
         findViewById(R.id.body).setOnClickListener(this);
         findViewById(R.id.imageViewList).setOnClickListener(this);
         findViewById(R.id.sidemenu).setOnClickListener(this);
+        findViewById(R.id.imageViewDoctor).setOnClickListener(this);
         img_view = (ImageView) findViewById(R.id.imageViewList);
         img_sidemenu = (ImageView) findViewById(R.id.sidemenu);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
 
         mapsFragment = new MapsFragment();
-        listViewFragment = new ListViewFragment();
+        fm = getSupportFragmentManager();
+        ft = fm.beginTransaction();
+        ft.replace(R.id.containermap, mapsFragment);
+        ft.commit();
 
-
-        if (viewboolean == false) {
-            //img_view.setImageResource(R.drawable.list_view_icon);
-
-            fm = getSupportFragmentManager();
-            ft = fm.beginTransaction();
-
-            //ft.remove(listViewFragment);
-            ft.add(R.id.containermap, mapsFragment);
-            ft.commit();
-            viewboolean = true;
-        }
 
 
     }
@@ -94,47 +86,26 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
     public void onClick(View v) {
         int i = v.getId();
         if (i == R.id.imageViewList) {
-            if (false == viewboolean) {
-                viewboolean = true;
-                img_view.setImageResource(R.drawable.list_view_icon);
+                Toast.makeText(this, "Welcome to List", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(getApplicationContext(), ConsumerListsActivity.class));
+        }
+         if (i == R.id.imageViewDoctor) {
 
 
-                fm = getSupportFragmentManager();
-                ft = fm.beginTransaction();
-
-                ft.remove(listViewFragment);
-                ft.remove(mapsFragment);
-                ft.add(R.id.containermap, mapsFragment);
-
-                ft.commit();
-                Toast.makeText(this, "Welcome to Map", Toast.LENGTH_SHORT).show();
-            } else if (true == viewboolean) {
-
-                img_view.setImageResource(R.drawable.ic_action_map);
-                viewboolean = false;
-
-                fm = getSupportFragmentManager();
-                ft = fm.beginTransaction();
-                ft.remove(listViewFragment);
-                ft.remove(mapsFragment);
-
-                ft.add(R.id.containerlist, listViewFragment);
-                ft.commit();
-                Toast.makeText(this, "Welcome to list", Toast.LENGTH_SHORT).show();
-
-            }
-
-        } else if (i == R.id.body) {
+            Toast.makeText(this, "Doctor Map view not available" , Toast.LENGTH_SHORT).show();
+        }
+        if (i == R.id.body) {
             Toast.makeText(this, "Welcome body ...tarun", Toast.LENGTH_SHORT).show();
             // finish();
             startActivity(new Intent(getApplicationContext(), Body.class));
         }
-        else if (i == R.id.sidemenu) {
+        if (i == R.id.sidemenu) {
 
             startActivity(new Intent(getApplicationContext(), SidemenuActivity.class));
 
                 Toast.makeText(this, "Side Menu", Toast.LENGTH_SHORT).show();
             }
+
 
         }
 
