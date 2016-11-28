@@ -161,11 +161,11 @@ public class DoctorsList extends Fragment {
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
         DatabaseReference mRef = ref.child("Data").child("Doctors");
-        Doctor setDoctor = new Doctor();
-        setDoctor.setName("Tarun");
-        setDoctor.setQualifications("btech");
-        Log.d(TAG, "onAuthStateChanged:signed_out-tarun" +setDoctor.getName() );
-        mRef.push().setValue(setDoctor);
+        //Doctor setDoctor = new Doctor();
+        //setDoctor.setName("Tarun");
+        //setDoctor.setQualifications("btech");
+        Log.d(TAG, "init" );
+       // mRef.push().setValue(setDoctor);
         mDoctor = new ArrayList<>();
 
         mRef.addChildEventListener(new ChildEventListener() {

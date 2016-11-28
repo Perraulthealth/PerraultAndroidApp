@@ -27,7 +27,15 @@ public  class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolde
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
-        private TextView textViewName;
+        private TextView name;
+        private TextView qualifications;
+        private TextView specialities;
+        private TextView experience;
+        private TextView clinicName;
+        private TextView timings;
+        private TextView area;
+        private TextView fee;
+
         public ViewHolder(View v) {
             super(v);
             v.setOnClickListener(new View.OnClickListener() {
@@ -36,11 +44,40 @@ public  class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolde
                    // Log.d(TAG, "Element " + getAdapterPosition() + " clicked.");
                 }
             });
-            textViewName = (TextView) v.findViewById(R.id.name);
+            name = (TextView) v.findViewById(R.id.name);
+            qualifications = (TextView) v.findViewById(R.id.qualifications);
+            specialities = (TextView) v.findViewById(R.id.specialities);
+            experience = (TextView) v.findViewById(R.id.experience);
+            clinicName = (TextView) v.findViewById(R.id.clinicName);
+            timings = (TextView) v.findViewById(R.id.timings);
+            area = (TextView) v.findViewById(R.id.area);
+            fee = (TextView) v.findViewById(R.id.fee);
         }
-        public TextView getTextViewName() {
-            return textViewName;
+        public TextView getName() {
+            return name;
         }
+        public TextView getQualifications() {
+            return qualifications;
+        }
+        public TextView getSpecialities() {
+            return specialities;
+        }
+        public TextView getExperience() {
+            return experience;
+        }
+        public TextView getClinicName() {
+            return clinicName;
+        }
+        public TextView getTimings() {
+            return timings;
+        }
+        public TextView getArea() {
+            return area;
+        }
+        public TextView getFee() {
+            return fee;
+        }
+
     }
 
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
@@ -60,8 +97,25 @@ public  class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolde
         // Get element from your dataset at this position and replace the contents of the view
         // with that element
         Doctor doctor = mDoctors.get(position);
-        TextView name = viewHolder.getTextViewName();
+        TextView name = viewHolder.getName();
+        TextView qualifications = viewHolder.getQualifications();
+        TextView specialities = viewHolder.getSpecialities();
+        TextView experience = viewHolder.getExperience();
+        TextView clinicName = viewHolder.getClinicName();
+        TextView timings = viewHolder.getTimings();
+        TextView area = viewHolder.getArea();
+        TextView fee = viewHolder.getFee();
+
         name.setText(doctor.getName());
+        name.setText(doctor.getQualifications());
+        name.setText(doctor.getSpecialities());
+        name.setText(doctor.getExperience());
+        name.setText(doctor.getClinicName());
+        name.setText(doctor.getTimings());
+        name.setText(doctor.getArea());
+        name.setText(doctor.getFee());
+
+
         //viewHolder.getTextViewName().setText(mDataSet[position]);
     }
 
