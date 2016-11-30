@@ -12,15 +12,17 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.Doctor.DoctorHomeActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-
+import com.google.firebase.database.ValueEventListener;
 
 
 public class ConsumerSigninActivity extends AppCompatActivity implements View.OnClickListener {
@@ -83,8 +85,9 @@ public class ConsumerSigninActivity extends AppCompatActivity implements View.On
                 if (user != null) {
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-                    finish();
-                    startActivity(new Intent(getApplicationContext(),ConsumerMapsActivity.class ));
+                    //finish();
+                    //startActivity(new Intent(getApplicationContext(),ConsumerMapsActivity.class ));
+                    callHome();
                 } else {
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out");
@@ -159,10 +162,11 @@ public class ConsumerSigninActivity extends AppCompatActivity implements View.On
                         Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
                         if (task.isSuccessful()) {
                             saveSigninData( );
-                            finish();
+                            //finish();
                            // progressDialog.dismiss();
                             //otp auth
-                            startActivity(new Intent(getApplicationContext(), ConsumerMapsActivity.class));
+                            callHome();
+                           // startActivity(new Intent(getApplicationContext(), ConsumerMapsActivity.class));
                         }
 
 
@@ -203,13 +207,40 @@ public class ConsumerSigninActivity extends AppCompatActivity implements View.On
         Log.d(TAG, "saveSigninData "+ uid);
 
 
-                mRootRef.child("Consumer").child(uid).child("checkbox").setValue(checkbox);
+                mRootRef.child("Users").child(uid).child("checkbox").setValue(checkbox);
         }
+    private void callHome()
+    {
+        DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
 
-    }
-
-/*
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
 
-*/
+        String uid = user.getUid();
+        DatabaseReference ref = mRootRef.child("Users").child(uid).child("Usertype");
+       ref.addValueEventListener(new ValueEventListener(){
+           @Override
+           public void onDataChange(DataSnapshot dataSnapshot) {
+               String Usertype = dataSnapshot.getValue(String.class);
+               if(Usertype.equals("Patient"))
+               {
+                   finish();
+                   startActivity(new Intent(getApplicationContext(),ConsumerMapsActivity.class ));
+               }
+               if(Usertype.equals("Doctor"))
+               {
+                   finish();
+                   startActivity(new Intent(getApplicationContext(),DoctorHomeActivity.class ));
+               }
+
+           }
+           @Override
+           public void onCancelled(DatabaseError firebaseError) {
+               Log.e("Chat", "The read failed: " );
+           }
+       });
+       }
+}
+
+
 

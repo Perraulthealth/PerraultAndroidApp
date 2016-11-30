@@ -21,7 +21,7 @@ public class Doctor {
     */
     private String name;
     private String qualifications;
-    private String clinicName;
+    private String ClinicName;
     private String experience;
     private String fee;
     private String specialities;
@@ -46,11 +46,11 @@ public class Doctor {
     }
 
     public String getClinicName() {
-        return clinicName;
+        return ClinicName;
     }
 
     public void setClinicName(String clinicName) {
-        this.clinicName = clinicName;
+        this.ClinicName = clinicName;
     }
 
     public String getExperience() {

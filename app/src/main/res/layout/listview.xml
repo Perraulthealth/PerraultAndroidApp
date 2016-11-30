@@ -54,7 +54,7 @@
         app:srcCompat="@drawable/bucket"
         android:id="@+id/imageViewBucket"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/imageViewList"
+        app:layout_constraintRight_toLeftOf="@+id/imageViewMap"
         app:layout_constraintLeft_toRightOf="@+id/imageViewHealthcard"
         android:layout_marginTop="5dp"
         android:layout_marginRight="5dp" />

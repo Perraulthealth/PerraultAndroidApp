@@ -10,13 +10,17 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.Doctor.DoctorHomeActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 //import java.util.function.Consumer;
 
@@ -82,8 +86,10 @@ public class ConsumerSignupActivity extends AppCompatActivity implements View.On
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:-tarun" + user.getUid());
                     //startActivity(new Intent(getApplicationContext(),ConsumerMapsSigninActivity.class ));
-                    finish();
-                    startActivity(new Intent(getApplicationContext(),ConsumerMapsActivity.class ));
+                    callHome();
+                   // finish();
+                    //startActivity(new Intent(getApplicationContext(),ConsumerMapsActivity.class ));
+                    //startActivity(new Intent(getApplicationContext(),WhoAreYou.class ));
                 } else {
                     // User is signed out
                     Log.d(TAG, "onAuthStateChanged:signed_out-tarun");
@@ -179,7 +185,8 @@ public class ConsumerSignupActivity extends AppCompatActivity implements View.On
                             finish();
                            // progressDialog.dismiss();
                             //otp auth
-                            startActivity(new Intent(getApplicationContext(), ConsumerMapsActivity.class));
+                           // startActivity(new Intent(getApplicationContext(), ConsumerMapsActivity.class));
+                            startActivity(new Intent(getApplicationContext(), WhoAreYou.class));
                         }
 
                         // If sign in fails, display a message to the user. If sign in succeeds
@@ -214,7 +221,7 @@ public class ConsumerSignupActivity extends AppCompatActivity implements View.On
         String uid = user.getUid();
 
         Log.d(TAG, "user " + user);
-       // Log.d(TAG, "mAuth " + mAuth);
+        // Log.d(TAG, "mAuth " + mAuth);
         Log.d(TAG, "mAuth.getInstance() " + FirebaseAuth.getInstance());
         Log.d(TAG, "mRootRef " + mRootRef);
         Log.d(TAG, "FirebaseDatabase.getInstance() " + FirebaseDatabase.getInstance());
@@ -223,10 +230,41 @@ public class ConsumerSignupActivity extends AppCompatActivity implements View.On
         Log.d(TAG, "mobile "+ mobile);
         Log.d(TAG, "uid "+ uid);
 
-        mRootRef.child("Consumer").child(uid).child("email").setValue(email);
+        mRootRef.child("Users").child(uid).child("email").setValue(email);
         Log.d(TAG, "mRootRef.child - Consumer ref-tarun :"+  mRootRef.child("Consumer").getRef());
-        mRootRef.child("Consumer").child(uid).child("password").setValue(password);
-        mRootRef.child("Consumer").child(uid).child("mobile").setValue(mobile);
+        mRootRef.child("Users").child(uid).child("password").setValue(password);
+        mRootRef.child("Users").child(uid).child("mobile").setValue(mobile);
+    }
+    private void callHome()
+    {
+        DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+
+        String uid = user.getUid();
+        DatabaseReference ref = mRootRef.child("Users").child(uid).child("Usertype");
+        ref.addValueEventListener(new ValueEventListener(){
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String Usertype = dataSnapshot.getValue(String.class);
+                if(Usertype.equals("Patient"))
+                {
+                    finish();
+                    startActivity(new Intent(getApplicationContext(),ConsumerMapsActivity.class ));
+                }
+                if(Usertype.equals("Doctor"))
+                {
+                    finish();
+                    startActivity(new Intent(getApplicationContext(),DoctorHomeActivity.class ));
+                }
+
+            }
+            @Override
+            public void onCancelled(DatabaseError firebaseError) {
+                Log.e("Chat", "The read failed: " );
+            }
+        });
     }
 }
 

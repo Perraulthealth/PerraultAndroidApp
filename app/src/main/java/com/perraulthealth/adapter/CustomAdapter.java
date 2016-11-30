@@ -107,13 +107,13 @@ public  class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolde
         TextView fee = viewHolder.getFee();
 
         name.setText(doctor.getName());
-        name.setText(doctor.getQualifications());
-        name.setText(doctor.getSpecialities());
-        name.setText(doctor.getExperience());
-        name.setText(doctor.getClinicName());
-        name.setText(doctor.getTimings());
-        name.setText(doctor.getArea());
-        name.setText(doctor.getFee());
+        qualifications.setText(doctor.getQualifications());
+        specialities.setText(doctor.getSpecialities());
+        experience.setText(doctor.getExperience());
+        clinicName.setText(doctor.getClinicName());
+        timings.setText(doctor.getTimings());
+        area.setText(doctor.getArea());
+        fee.setText(doctor.getFee());
 
 
         //viewHolder.getTextViewName().setText(mDataSet[position]);

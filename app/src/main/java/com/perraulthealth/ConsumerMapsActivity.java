@@ -100,7 +100,7 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
         }
         if (i == R.id.sidemenu) {
 
-            startActivity(new Intent(getApplicationContext(), SidemenuActivity.class));
+           // startActivity(new Intent(getApplicationContext(), SidemenuActivity.class));
 
                 Toast.makeText(this, "Side Menu", Toast.LENGTH_SHORT).show();
             }
