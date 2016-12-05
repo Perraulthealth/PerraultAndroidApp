@@ -138,8 +138,8 @@ public class ListViewFragment extends ListFragment {
 
          objHospital = new Hospital();
         objHospital.setName("MAX hospital");
-        objHospital.setRating("5.1");
-        objHospital.setNumofbeds(600);
+       // objHospital.setRating("5.1");
+        //objHospital.setNumofbeds(600);
         objHospital.setAddress("Saket New Delhi, India");
         mRootRef.child("Hospital").child(uid).setValue(objLab);
 

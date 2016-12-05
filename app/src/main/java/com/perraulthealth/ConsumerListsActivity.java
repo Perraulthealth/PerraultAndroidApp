@@ -61,7 +61,17 @@ public class ConsumerListsActivity extends AppCompatActivity implements View.OnC
             ft.replace(R.id.containerlist, doctorsList);
             ft.commit();
 
-            Toast.makeText(this, "Doctor", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Doctors", Toast.LENGTH_SHORT).show();
+        }
+        if (i == R.id.imageViewHospital) {
+
+            DoctorsList doctorsList = new DoctorsList();
+            fm = getSupportFragmentManager();
+            ft = fm.beginTransaction();
+            ft.replace(R.id.containerlist, doctorsList);
+            ft.commit();
+
+            Toast.makeText(this, "Hospitals", Toast.LENGTH_SHORT).show();
         }
     }
 }

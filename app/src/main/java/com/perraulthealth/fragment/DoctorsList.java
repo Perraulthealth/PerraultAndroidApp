@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -30,7 +29,7 @@ import java.util.List;
 
 public class DoctorsList extends Fragment {
 
-        private static final String TAG = "RecyclerViewFragment";
+        private static final String TAG = "DoctorsListFragment";
         private static final String KEY_LAYOUT_MANAGER = "layoutManager";
         private static final int SPAN_COUNT = 2;
         private static final int DATASET_COUNT = 60;
@@ -41,15 +40,9 @@ public class DoctorsList extends Fragment {
         }
 
         protected LayoutManagerType mCurrentLayoutManagerType;
-
-        protected Button mLinearLayoutRadioButton;
-        protected Button mGridLayoutRadioButton;
-
         protected RecyclerView mRecyclerView;
         protected CustomAdapter mAdapter;
         protected RecyclerView.LayoutManager mLayoutManager;
-        protected String[] mDataset;
-        protected Doctor objDoctor;
         protected List<Doctor> mDoctor;
 
 

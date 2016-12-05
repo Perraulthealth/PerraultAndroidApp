@@ -7,9 +7,18 @@ package com.perraulthealth;
 public class Hospital {
 
     private String name;
-    private Integer numofbeds;
+    private Integer numberofDoctors;
     private String address;
-    private String rating;
+    private String timings;
+    private String specialities;
+
+    public String getSpecialities() {
+        return specialities;
+    }
+
+    public void setSpecialities(String specialities) {
+        this.specialities = specialities;
+    }
 
     public Hospital() {
     }
@@ -22,12 +31,12 @@ public class Hospital {
         this.name = name;
     }
 
-    public Integer getNumofbeds() {
-        return numofbeds;
+    public Integer getNumberofDoctors() {
+        return numberofDoctors;
     }
 
-    public void setNumofbeds(Integer numofbeds) {
-        this.numofbeds = numofbeds;
+    public void setNumberofDoctors(Integer numberofDoctors) {
+        this.numberofDoctors = numberofDoctors;
     }
 
     public String getAddress() {
@@ -38,11 +47,11 @@ public class Hospital {
         this.address = address;
     }
 
-    public String getRating() {
-        return rating;
+    public String getTimings() {
+        return timings;
     }
 
-    public void setRating(String rating) {
-        this.rating = rating;
+    public void setTimings(String timings) {
+        this.timings = timings;
     }
 }
