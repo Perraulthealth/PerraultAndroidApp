@@ -13,7 +13,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.perraulthealth.Datatypes.Doctor;
-import com.perraulthealth.Hospital;
+import com.perraulthealth.Datatypes.Hospital;
 import com.perraulthealth.Lab;
 import com.perraulthealth.Pharmacy;
 import com.perraulthealth.R;

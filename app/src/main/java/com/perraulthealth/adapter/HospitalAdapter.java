@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.perraulthealth.Hospital;
+import com.perraulthealth.Datatypes.Hospital;
 import com.perraulthealth.R;
 
 import java.util.List;
@@ -98,10 +98,15 @@ public class HospitalAdapter extends RecyclerView.Adapter<HospitalAdapter.ViewHo
         TextView address = viewHolder.getAddress();
         TextView timings = viewHolder.getTimings();
 
+        if(null!=hospital.getName())
         name.setText(hospital.getName());
-        numofDocs.setText(hospital.getNumberofDoctors());
+        if(null!=hospital.getNumberofDoctors())
+            numofDocs.setText(hospital.getNumberofDoctors());
+        if(null!=hospital.getSpecialities())
         specialities.setText(hospital.getSpecialities());
+        if(null!=hospital.getAddress())
         address.setText(hospital.getAddress());
+        if(null!=hospital.getTimings())
         timings.setText(hospital.getTimings());
     }
 

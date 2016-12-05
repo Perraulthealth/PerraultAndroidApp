@@ -14,7 +14,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.perraulthealth.Hospital;
+import com.perraulthealth.Datatypes.Hospital;
 import com.perraulthealth.R;
 import com.perraulthealth.adapter.HospitalAdapter;
 
@@ -65,11 +65,14 @@ public class HospitalsList extends Fragment {
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
         DatabaseReference mRef = ref.child("Data").child("Hospitals");
-        //Doctor setDoctor = new Doctor();
-        //setDoctor.setName("Tarun");
-        //setDoctor.setQualifications("btech");
-        Log.d(TAG, "init" );
-        // mRef.push().setValue(setDoctor);
+        //Hospital setHospital = new Hospital();
+        //setHospital.setName("AIIMS");
+        //setHospital.setAddress("ABCD");
+        //setHospital.setNumberofDoctors("20 Doctors");
+        //setHospital.setSpecialities("ALL");
+        //setHospital.setTimings("1234");
+        Log.d(TAG, "init");
+         //mRef.push().setValue(setHospital);
         mHospital = new ArrayList<>();
 
         mRef.addChildEventListener(new ChildEventListener() {

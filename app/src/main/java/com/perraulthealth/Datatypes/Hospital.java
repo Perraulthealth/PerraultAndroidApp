@@ -1,4 +1,4 @@
-package com.perraulthealth;
+package com.perraulthealth.Datatypes;
 
 /**
  * Created by sutu on 11/9/2016.
@@ -7,7 +7,7 @@ package com.perraulthealth;
 public class Hospital {
 
     private String name;
-    private Integer numberofDoctors;
+    private String numberofDoctors;
     private String address;
     private String timings;
     private String specialities;
@@ -31,11 +31,11 @@ public class Hospital {
         this.name = name;
     }
 
-    public Integer getNumberofDoctors() {
+    public String getNumberofDoctors() {
         return numberofDoctors;
     }
 
-    public void setNumberofDoctors(Integer numberofDoctors) {
+    public void setNumberofDoctors(String numberofDoctors) {
         this.numberofDoctors = numberofDoctors;
     }
 

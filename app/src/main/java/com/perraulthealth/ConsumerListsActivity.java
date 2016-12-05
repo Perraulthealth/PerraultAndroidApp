@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.perraulthealth.fragment.DoctorsList;
+import com.perraulthealth.fragment.HospitalsList;
 import com.perraulthealth.fragment.ListViewFragment;
 
 /**
@@ -30,6 +31,7 @@ public class ConsumerListsActivity extends AppCompatActivity implements View.OnC
         findViewById(R.id.imageViewMap).setOnClickListener(this);
         findViewById(R.id.sidemenu).setOnClickListener(this);
         findViewById(R.id.imageViewDoctor).setOnClickListener(this);
+        findViewById(R.id.imageViewHospital).setOnClickListener(this);
         //img_view = (ImageView) findViewById(R.id.imageViewList);
         //img_sidemenu = (ImageView) findViewById(R.id.sidemenu);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -65,10 +67,10 @@ public class ConsumerListsActivity extends AppCompatActivity implements View.OnC
         }
         if (i == R.id.imageViewHospital) {
 
-            DoctorsList doctorsList = new DoctorsList();
+            HospitalsList hospitalsList = new HospitalsList();
             fm = getSupportFragmentManager();
             ft = fm.beginTransaction();
-            ft.replace(R.id.containerlist, doctorsList);
+            ft.replace(R.id.containerlist, hospitalsList);
             ft.commit();
 
             Toast.makeText(this, "Hospitals", Toast.LENGTH_SHORT).show();
