@@ -32,6 +32,16 @@ public class ConsumerListsActivity extends AppCompatActivity implements View.OnC
         findViewById(R.id.sidemenu).setOnClickListener(this);
         findViewById(R.id.imageViewDoctor).setOnClickListener(this);
         findViewById(R.id.imageViewHospital).setOnClickListener(this);
+       /*
+        findviewById(R.id.searchViewHealthcare).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),
+                        ed1.getText().toString(),Toast.LENGTH_SHORT).show();
+                mScs.getSuggestions(new TextInfo(ed1.getText().toString()), 3);
+            }
+        });
+        */
         //img_view = (ImageView) findViewById(R.id.imageViewList);
         //img_sidemenu = (ImageView) findViewById(R.id.sidemenu);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
