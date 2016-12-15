@@ -1,0 +1,58 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_consumer_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Doctor Profile"
+        android:id="@+id/textViewDoctorprofile"
+        android:layout_marginBottom="50dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="Basic Profile"
+        android:id="@+id/doctorbasicprofile"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDoctorprofile" />
+    <Button
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="Education"
+        android:id="@+id/doctoreducation"
+        app:layout_constraintLeft_toRightOf="@+id/doctorbasicprofile"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDoctorprofile" />
+
+    <Button
+        android:layout_width="88dp"
+        android:layout_height="48dp"
+        android:text="Specailities"
+        android:id="@+id/doctorspecialization"
+        app:layout_constraintLeft_toRightOf="@+id/doctoreducation"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDoctorprofile" />
+    <Button
+        android:layout_width="88dp"
+        android:layout_height="48dp"
+        android:text="Experience"
+        android:id="@+id/doctorexperience"
+        app:layout_constraintLeft_toRightOf="@+id/doctorspecialization"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDoctorprofile" />
+    <FrameLayout
+        android:id="@+id/containerDoctorProfile"
+        android:layout_width="match_parent"
+        android:layout_height="484dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/doctorbasicprofile"
+        />
+
+</android.support.constraint.ConstraintLayout>

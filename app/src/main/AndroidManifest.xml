@@ -16,8 +16,6 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyC1UP8VkKj1hOLoUTHJ-MTR9wjxioC2BIc" />
 
-
-
         <activity
             android:name=".AppLaunch"
             android:label="@string/title_app_launch">
@@ -61,19 +59,21 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-
         <activity android:name=".WhoAreYou" />
-        <activity android:name="com.Doctor.NewPrescriptionActivity"></activity>
+        <activity android:name="com.Doctor.NewPrescriptionActivity" />
+
         <service android:name=".MyFirebaseMessagingService">
             <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
         <service android:name=".MyFirebaseInstanceIDService">
             <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
+
+        <activity android:name="com.Doctor.DoctorProfileActivity"></activity>
     </application>
 
 </manifest>
