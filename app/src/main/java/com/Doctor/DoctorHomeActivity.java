@@ -19,5 +19,7 @@ public class DoctorHomeActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View v) {
 
+        
+
     }
 }

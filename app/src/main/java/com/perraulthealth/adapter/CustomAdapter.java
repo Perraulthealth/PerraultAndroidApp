@@ -13,16 +13,8 @@ import java.util.List;
 
 public  class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
 
-
-    private String[] mDataSet;
     private List<Doctor> mDoctors;
-    private String name;
-    private String regnum;
-    private String degree;
-    //TextView doctor_name;
-    //TextView doctor_regnum;
-    //TextView doctor_degree;
-    //ImageView doctor_photo;
+
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

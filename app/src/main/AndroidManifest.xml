@@ -16,6 +16,8 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyC1UP8VkKj1hOLoUTHJ-MTR9wjxioC2BIc" />
 
+
+
         <activity
             android:name=".AppLaunch"
             android:label="@string/title_app_launch">
@@ -63,7 +65,8 @@
             android:name="com.DD.DoctorsList"
             android:label="@string/title_activity_doctors_list"
             android:theme="@style/AppTheme" />
-        <activity android:name=".WhoAreYou"></activity>
+        <activity android:name=".WhoAreYou" />
+        <activity android:name="com.Doctor.NewPrescriptionActivity"></activity>
     </application>
 
 </manifest>
