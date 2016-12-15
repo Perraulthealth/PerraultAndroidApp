@@ -25,6 +25,16 @@ public class WhoAreYou extends AppCompatActivity implements View.OnClickListener
         findViewById(R.id.HospitalAdministrator).setOnClickListener(this);
         findViewById(R.id.MedicalAssistant).setOnClickListener(this);
 
+
+        DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+
+        String uid = user.getUid();
+        DatabaseReference ref = mRootRef.child("Users").child(uid).child("Usertype");
+
+
     }
     @Override
     public void onClick(View v) {

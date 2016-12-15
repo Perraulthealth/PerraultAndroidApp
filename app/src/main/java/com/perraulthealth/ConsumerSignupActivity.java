@@ -62,9 +62,7 @@ public class ConsumerSignupActivity extends AppCompatActivity implements View.On
 
 
 
-        editTextMobile = (EditText) findViewById(R.id.editTextMobile);
-        editTextEmail = (EditText) findViewById(R.id.editTextEmail);
-        editTextPassword = (EditText) findViewById(R.id.editTextPassword);
+
 
 
 
@@ -121,6 +119,9 @@ public class ConsumerSignupActivity extends AppCompatActivity implements View.On
 
 
         int i = v.getId();
+        editTextMobile = (EditText) findViewById(R.id.editTextMobile);
+        editTextEmail = (EditText) findViewById(R.id.editTextEmail);
+        editTextPassword = (EditText) findViewById(R.id.editTextPassword);
 
 
         if(i ==R.id.buttonSignup) {
@@ -231,7 +232,7 @@ public class ConsumerSignupActivity extends AppCompatActivity implements View.On
         Log.d(TAG, "uid "+ uid);
 
         mRootRef.child("Users").child(uid).child("email").setValue(email);
-        Log.d(TAG, "mRootRef.child - Consumer ref-tarun :"+  mRootRef.child("Consumer").getRef());
+        Log.d(TAG, "mRootRef.child - Consumer ref-tarun :"+  mRootRef.child("Users").getRef());
         mRootRef.child("Users").child(uid).child("password").setValue(password);
         mRootRef.child("Users").child(uid).child("mobile").setValue(mobile);
     }
@@ -248,6 +249,12 @@ public class ConsumerSignupActivity extends AppCompatActivity implements View.On
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 String Usertype = dataSnapshot.getValue(String.class);
+                Log.d(TAG, "Usertype"+  Usertype);
+
+                if(null==Usertype) {
+                    finish();
+                    startActivity(new Intent(getApplicationContext(), WhoAreYou.class));
+                }
                 if(Usertype.equals("Patient"))
                 {
                     finish();

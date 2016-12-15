@@ -21,6 +21,7 @@ import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.Marker;
 import com.perraulthealth.fragment.ListViewFragment;
 import com.perraulthealth.fragment.MapsFragment;
+import com.perraulthealth.model.SidemenuActivity;
 
 import java.util.Map;
 
@@ -100,7 +101,7 @@ public class ConsumerMapsActivity extends AppCompatActivity implements View.OnCl
         }
         if (i == R.id.sidemenu) {
 
-           // startActivity(new Intent(getApplicationContext(), SidemenuActivity.class));
+            startActivity(new Intent(getApplicationContext(), SidemenuActivity.class));
 
                 Toast.makeText(this, "Side Menu", Toast.LENGTH_SHORT).show();
             }
