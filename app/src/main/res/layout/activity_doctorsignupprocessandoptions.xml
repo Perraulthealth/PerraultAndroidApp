@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_doctorsignupprocessandoptions"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.perraulthealth.Doctorsignupprocessandoptions">
+
+    <TextView
+        android:text="Complete your profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteY="48dp"
+        tools:layout_editor_absoluteX="16dp"
+        android:id="@+id/textView"
+        android:textSize="18sp"
+        android:textColor="@android:color/holo_green_dark" />
+
+    <Button
+        android:text="Basic details"
+        android:layout_width="336dp"
+        tools:layout_editor_absoluteY="76dp"
+        tools:layout_editor_absoluteX="8dp"
+        android:id="@+id/button2"
+        android:background="@android:color/holo_green_dark"
+        android:textAlignment="viewStart"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:layout_height="48dp" />
+
+    <Button
+        android:text="Education"
+        android:layout_width="336dp"
+        tools:layout_editor_absoluteY="130dp"
+        tools:layout_editor_absoluteX="8dp"
+        android:id="@+id/button3"
+        android:background="@android:color/holo_green_dark"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textAlignment="viewStart"
+        android:layout_height="48dp" />
+
+    <Button
+        android:text="Experience"
+        android:layout_width="336dp"
+        tools:layout_editor_absoluteY="186dp"
+        tools:layout_editor_absoluteX="8dp"
+        android:id="@+id/button4"
+        android:background="@android:color/holo_green_dark"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:textAlignment="viewStart"
+        android:layout_height="48dp" />
+
+    <Button
+        android:text="Pricing"
+        android:layout_width="336dp"
+        tools:layout_editor_absoluteY="238dp"
+        tools:layout_editor_absoluteX="8dp"
+        android:id="@+id/button5"
+        android:background="@android:color/holo_green_dark"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:textAlignment="viewStart"
+        android:layout_height="48dp" />
+
+    <Button
+        android:text="Work details"
+        android:layout_height="48dp"
+        tools:layout_editor_absoluteY="290dp"
+        tools:layout_editor_absoluteX="8dp"
+        android:id="@+id/button6"
+        android:textAlignment="viewStart"
+        android:textSize="18sp"
+        android:layout_width="336dp" />
+
+    <Button
+        android:text="Preferred providers"
+        android:layout_width="336dp"
+        android:layout_height="48dp"
+        tools:layout_editor_absoluteY="344dp"
+        tools:layout_editor_absoluteX="8dp"
+        android:id="@+id/button7"
+        android:textAlignment="viewStart"
+        android:textSize="18sp" />
+
+    <Button
+        android:text="Terms anad conditions"
+        android:layout_width="336dp"
+        android:layout_height="48dp"
+        tools:layout_editor_absoluteY="400dp"
+        tools:layout_editor_absoluteX="8dp"
+        android:id="@+id/button8"
+        android:textSize="18sp"
+        android:textAlignment="viewStart" />
+
+    <TextView
+        android:text="OR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteY="457dp"
+        tools:layout_editor_absoluteX="138dp"
+        android:id="@+id/textView5"
+        android:textSize="18sp" />
+
+    <Button
+        android:text="just call us to register"
+        android:layout_width="336dp"
+        android:layout_height="48dp"
+        tools:layout_editor_absoluteY="480dp"
+        tools:layout_editor_absoluteX="8dp"
+        android:id="@+id/button10"
+        android:background="@android:color/white"
+        android:textSize="18sp" />
+
+</android.support.constraint.ConstraintLayout>
